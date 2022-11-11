@@ -1,23 +1,25 @@
-﻿using Counter.Core.Interfaces;
+﻿using System.Numerics;
+using Counter.Core.Interfaces;
 
 namespace Counter.Infrastructure.Services;
 
 public class CounterService : ICountService
 {
-    private Int64 _number;
-
+    private BigInteger _number;
+    public object locker { get; set; } = new();
     public CounterService()
     {
-        _number = 0;
+        _number = new BigInteger(0);
     }
     
-    public void IncrementNumber(Int64 a)
+    public void IncrementNumber(string numberAsString)
     {
-        Interlocked.Add(ref _number, a);
+        _number += BigInteger.Parse(numberAsString);
     }
     
-    public  Int64 GetNumber()
+    public string GetNumber()
     {
-        return _number;
+        return _number.ToString();
     }
+    
 }

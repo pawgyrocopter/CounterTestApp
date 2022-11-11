@@ -16,6 +16,9 @@ export class CounterService {
     return this.http.post<Counter>(this.baseUrl + 'Counter', {randomNumber})
   }
 
+  getCurrentNumber(){
+    return this.http.get(this.baseUrl + 'Counter')
+  }
 
 
 }

@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
       if (this.stopSending) {
         subscriberInfiniteRequests.unsubscribe();
       }
-      this.randomNumber = this.getRandomInt(100000);
+      this.randomNumber = this.getRandomInt(100);
       this.counterService.sendRandomNumber(this.randomNumber).subscribe()
     })
   }

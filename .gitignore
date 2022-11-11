@@ -15,3 +15,6 @@ counterClient/README.md
 
 Counter.Core/bin
 Counter.Core/obj
+
+Counter.Infrastructure/bin
+Counter.Infrastructure/obj

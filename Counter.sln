@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter.Api", "Counter.Api\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter.Core", "Counter.Core\Counter.Core.csproj", "{C710F3E2-FD9A-4669-A23A-777EA5DAEED0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter.Infrastructure", "Counter.Infrastructure\Counter.Infrastructure.csproj", "{3A495245-A20C-4492-9ACF-AC0B95939A26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{C710F3E2-FD9A-4669-A23A-777EA5DAEED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C710F3E2-FD9A-4669-A23A-777EA5DAEED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C710F3E2-FD9A-4669-A23A-777EA5DAEED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A495245-A20C-4492-9ACF-AC0B95939A26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A495245-A20C-4492-9ACF-AC0B95939A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A495245-A20C-4492-9ACF-AC0B95939A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A495245-A20C-4492-9ACF-AC0B95939A26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

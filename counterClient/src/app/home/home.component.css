@@ -11,3 +11,13 @@ body{
   margin: 10px;
   width: 200px;
 }
+
+.card-footer.randomNumber{
+  height: 5vh;
+  width: auto;
+  background: white;
+  border: none;
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+}

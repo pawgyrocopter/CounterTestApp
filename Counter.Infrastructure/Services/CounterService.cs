@@ -5,7 +5,7 @@ namespace Counter.Infrastructure.Services;
 
 public class CounterService : ICountService
 {
-    private static BigInteger _number;
+    private BigInteger _number;
     public object locker { get; set; } = new();
     public CounterService()
     {

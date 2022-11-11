@@ -14,12 +14,12 @@ import {SignalRService} from "../_services/signal-r.service";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private counterService: CounterService, public signalRService : SignalRService) {
+  constructor(private counterService: CounterService, public signalRService: SignalRService) {
   }
 
   stopSending: boolean = false;
   inputTime: string = "";
-  signalrNumber: string = "";
+  randomNumber: number = 0;
 
   ngOnInit(): void {
     this.signalRService.startConnection()
@@ -33,26 +33,30 @@ export class HomeComponent implements OnInit {
     const infiniteRequests = interval(Number(this.inputTime))
     let subscriberInfiniteRequests = infiniteRequests.subscribe((d) => {
 
-
       if (this.stopSending) {
         subscriberInfiniteRequests.unsubscribe();
-
-        this.changeDisability("startButton", false);
-        this.changeDisability("inputTime", false);
       }
-      this.counterService.sendRandomNumber((this.getRandomNumber(10000000000000000000)).toString()).subscribe()
+      this.randomNumber = this.getRandomInt(100000);
+      this.counterService.sendRandomNumber(this.randomNumber).subscribe()
     })
   }
 
-  getRandomNumber(max: number) {
+  getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
   }
 
-  changeDisability(elementId : string, state : boolean){
-    (<HTMLInputElement> document.getElementById(elementId)).disabled = state;
+  changeDisability(elementId: string, state: boolean) {
+    (<HTMLInputElement>document.getElementById(elementId)).disabled = state;
   }
 
   stopInfiniteSending() {
     this.stopSending = true
+    this.changeDisability("startButton", false);
+    this.changeDisability("inputTime", false);
+  }
+
+  validateInputTime() {
+    Number(this.inputTime) < 0 ? this.changeDisability('startButton', true) :
+      this.changeDisability('startButton', false)
   }
 }

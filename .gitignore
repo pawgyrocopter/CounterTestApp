@@ -1,0 +1,11 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+
+./Counter.Api/bin
+./Counter.Api/obj
+./Counter.Api/appsettings.json
+
+.idea

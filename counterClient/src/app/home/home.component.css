@@ -1,0 +1,13 @@
+.card{
+}
+.card-footer{
+  height: 75vh;
+}
+body{
+  background: black;
+}
+
+.btn{
+  margin: 10px;
+  width: 200px;
+}

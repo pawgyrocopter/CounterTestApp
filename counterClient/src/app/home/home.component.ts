@@ -14,11 +14,12 @@ import {SignalRService} from "../_services/signal-r.service";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private counterService: CounterService, private signalRService : SignalRService) {
+  constructor(private counterService: CounterService, public signalRService : SignalRService) {
   }
 
   stopSending: boolean = false;
   inputTime: string = "";
+  signalrNumber: string = "";
 
   ngOnInit(): void {
     this.signalRService.startConnection()

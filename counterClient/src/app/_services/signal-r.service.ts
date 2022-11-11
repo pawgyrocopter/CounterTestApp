@@ -7,6 +7,7 @@ import {environment} from "../../environments/environment";
 })
 export class SignalRService {
   hubConnection: HubConnection;
+  signalRNumber : number = 0;
   constructor() {
     this.hubConnection = new HubConnectionBuilder()
       .configureLogging(LogLevel.Information)
@@ -26,7 +27,7 @@ export class SignalRService {
 
   addValueListener(){
     this.hubConnection.on("SendIncrementedValue", (value) => {
-      console.log(value + 'signalR');
+      this.signalRNumber = value
     });
   }
 }

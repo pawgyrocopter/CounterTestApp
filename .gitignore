@@ -12,3 +12,6 @@ riderModule.iml
 
 counterClient/.vscode
 counterClient/README.md
+
+Counter.Core/bin
+Counter.Core/obj

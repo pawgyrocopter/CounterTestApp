@@ -9,3 +9,6 @@ riderModule.iml
 ./Counter.Api/appsettings.json
 
 .idea
+
+counterClient/.vscode
+counterClient/README.md

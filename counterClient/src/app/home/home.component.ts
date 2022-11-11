@@ -5,6 +5,7 @@ import {Counter} from "../_models/counter";
 import {ConsoleLogger} from "@angular/compiler-cli";
 import {renderSourceAndMap} from "@angular/compiler-cli/ngcc/src/rendering/source_maps";
 import {interval} from "rxjs";
+import {SignalRService} from "../_services/signal-r.service";
 
 @Component({
   selector: 'app-home',
@@ -13,13 +14,15 @@ import {interval} from "rxjs";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private counterService: CounterService) {
+  constructor(private counterService: CounterService, private signalRService : SignalRService) {
   }
 
   stopSending: boolean = false;
   inputTime: string = "";
 
   ngOnInit(): void {
+    this.signalRService.startConnection()
+    this.signalRService.addValueListener()
   }
 
   startInfiniteSending($event: MouseEvent) {

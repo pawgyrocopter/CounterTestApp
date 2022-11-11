@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from "@angular/forms";
+import {HubConnection} from "@microsoft/signalr";
+import {SignalRService} from "./_services/signal-r.service";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import {FormsModule} from "@angular/forms";
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

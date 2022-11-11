@@ -1,3 +1,4 @@
+using Counter.Api.Hubs;
 using Counter.Core.Interfaces;
 using Counter.Infrastructure.Services;
 
@@ -8,8 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddCors();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<ICountService, CounterService>();
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -30,6 +33,7 @@ app.UseCors(policy => policy
 
 app.UseAuthorization();
 
+app.MapHub<IncrementHub>("hubs/value");
 app.MapControllers();
 
 app.Run();

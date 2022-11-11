@@ -4,7 +4,7 @@ namespace Counter.Infrastructure.Services;
 
 public class CounterService : ICountService
 {
-    private static Int64 _number;
+    private Int64 _number;
 
     public CounterService()
     {

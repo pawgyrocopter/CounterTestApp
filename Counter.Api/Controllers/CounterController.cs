@@ -11,8 +11,9 @@ public class CounterController : BaseApiController
     }
     
     [HttpPost]
-    public async Task<IActionResult> Increment([FromBody]CounterDto counterDto)
+    public async Task<ActionResult<CounterDto>> Increment([FromBody]CounterDto counterDto)
     {
-        return Ok();
+        Console.WriteLine(counterDto.RandomNumber);
+        return Ok(counterDto);
     }
 }

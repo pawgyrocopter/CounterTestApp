@@ -2,5 +2,5 @@
 
 public class CounterDto
 {
-    public int Number { get; set; }
+    public int RandomNumber { get; set; }
 }

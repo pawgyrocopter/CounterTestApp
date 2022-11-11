@@ -1,19 +1,31 @@
-.card{
+.card {
 }
-.card-footer{
+
+.card-footer {
   height: 75vh;
 }
-body{
+
+body {
   background: black;
 }
 
-.btn{
+.form-group .btn {
   margin: 10px;
   width: 200px;
 }
 
-.card-footer.randomNumber{
+.card-footer.randomNumber {
   height: 5vh;
+  width: auto;
+  background: white;
+  border: none;
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.card-footer.currentNumber {
+  height: 12vh;
   width: auto;
   background: white;
   border: none;

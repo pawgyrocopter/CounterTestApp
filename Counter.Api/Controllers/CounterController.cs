@@ -16,12 +16,18 @@ public class CounterController : BaseApiController
         _countService = countService;
         _hub = hub;
     }
-    
+
     [HttpPost]
-    public async Task<ActionResult<CounterDto>> Increment([FromBody]CounterDto counterDto)
+    public async Task<ActionResult<CounterDto>> Increment([FromBody] CounterDto counterDto)
     {
         _countService.IncrementNumber(counterDto.RandomNumber);
         await _hub.Clients.All.SendAsync("SendIncrementedValue", _countService.GetNumber());
         return Ok(_countService.GetNumber());
+    }
+
+    [HttpGet]
+    public async Task<Int64> GetCurrentNumber()
+    {
+        return _countService.GetNumber();
     }
 }

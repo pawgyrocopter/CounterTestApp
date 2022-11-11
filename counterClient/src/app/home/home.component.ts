@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   stopSending: boolean = false;
   inputTime: string = "";
   randomNumber: number = 0;
+  currentNumber: number = 0;
 
   ngOnInit(): void {
     this.signalRService.startConnection()
@@ -58,5 +59,11 @@ export class HomeComponent implements OnInit {
   validateInputTime() {
     Number(this.inputTime) < 0 ? this.changeDisability('startButton', true) :
       this.changeDisability('startButton', false)
+  }
+
+  getCurrentNumber() {
+    this.counterService.getCurrentNumber().subscribe(response => {
+      this.currentNumber = Number(response)
+    });
   }
 }

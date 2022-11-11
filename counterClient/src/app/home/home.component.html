@@ -6,12 +6,12 @@
       <div class="row justify-content-md-center">
         <div class="col-4">
           <div class="input-group mb-3">
-            <input type="number" [(ngModel)]="inputTime" name="InputTime" class="form-control" placeholder="Number of ms" aria-label="Username" aria-describedby="basic-addon1">
+            <input id="inputTime" type="number" [(ngModel)]="inputTime" name="InputTime" class="form-control" placeholder="Number of ms" aria-label="Username" aria-describedby="basic-addon1">
           </div>
         </div>
       </div>
       <div class="form-group">
-        <button id="startButton" type="submit" class="btn btn-primary" (click)="startInfiniteSending()" >Start</button>
+        <button id="startButton" type="submit" class="btn btn-primary" (click)="startInfiniteSending($event)" >Start</button>
         <button id="stopButton" type="button" class="btn btn-primary" (click)="stopInfiniteSending()">Stop</button>
       </div>
     </div>

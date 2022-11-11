@@ -4,7 +4,6 @@ import {CounterService} from "../_services/counter.service";
 import {Counter} from "../_models/counter";
 import {ConsoleLogger} from "@angular/compiler-cli";
 import {renderSourceAndMap} from "@angular/compiler-cli/ngcc/src/rendering/source_maps";
-import {LoopService} from "../_services/loop.service";
 import {interval} from "rxjs";
 
 @Component({
@@ -14,28 +13,30 @@ import {interval} from "rxjs";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private counterService: CounterService, private loopService: LoopService) {
+  constructor(private counterService: CounterService) {
   }
 
-  qwe: Counter = {randomNumber: 0};
   stopSending: boolean = false;
   inputTime: string = "";
 
   ngOnInit(): void {
-    this.counterService.sendRandomNumber(123).subscribe(response => {
-      console.log(response.randomNumber)
-      this.qwe.randomNumber = response.randomNumber
-    })
   }
 
-  startInfiniteSending() {
-    const q = interval(Number(this.inputTime))
-    let b = q.subscribe((d) => {
-      console.log("qweqwe")
+  startInfiniteSending($event: MouseEvent) {
+    this.changeDisability("startButton", true);
+    this.changeDisability("inputTime", true);
+    this.stopSending = false
+    const infiniteRequests = interval(Number(this.inputTime))
+    let subscriberInfiniteRequests = infiniteRequests.subscribe((d) => {
+
+
       if (this.stopSending) {
-        b.unsubscribe()
+        subscriberInfiniteRequests.unsubscribe();
+
+        this.changeDisability("startButton", false);
+        this.changeDisability("inputTime", false);
       }
-      this.counterService.sendRandomNumber(this.getRandomInt(100)).subscribe()
+      this.counterService.sendRandomNumber(this.getRandomInt(10000)).subscribe()
     })
   }
 
@@ -43,9 +44,11 @@ export class HomeComponent implements OnInit {
     return Math.floor(Math.random() * max);
   }
 
+  changeDisability(elementId : string, state : boolean){
+    (<HTMLInputElement> document.getElementById(elementId)).disabled = state;
+  }
 
   stopInfiniteSending() {
-    console.log("stoped")
     this.stopSending = true
   }
 }

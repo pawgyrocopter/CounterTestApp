@@ -40,11 +40,11 @@ export class HomeComponent implements OnInit {
         this.changeDisability("startButton", false);
         this.changeDisability("inputTime", false);
       }
-      this.counterService.sendRandomNumber(this.getRandomInt(10000)).subscribe()
+      this.counterService.sendRandomNumber((this.getRandomNumber(10000000000000000000)).toString()).subscribe()
     })
   }
 
-  getRandomInt(max: number) {
+  getRandomNumber(max: number) {
     return Math.floor(Math.random() * max);
   }
 

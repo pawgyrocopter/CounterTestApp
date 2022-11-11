@@ -1,6 +1,8 @@
-﻿namespace Counter.Core.DTOs;
+﻿using System.Numerics;
+
+namespace Counter.Core.DTOs;
 
 public class CounterDto
 {
-    public long RandomNumber { get; set; }
+    public string RandomNumber { get; set; }
 }

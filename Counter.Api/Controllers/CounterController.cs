@@ -1,4 +1,5 @@
-﻿using Counter.Api.Hubs;
+﻿using System.Numerics;
+using Counter.Api.Hubs;
 using Counter.Core.DTOs;
 using Counter.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -20,8 +21,12 @@ public class CounterController : BaseApiController
     [HttpPost]
     public async Task<ActionResult<CounterDto>> Increment([FromBody]CounterDto counterDto)
     {
-        _countService.IncrementNumber(counterDto.RandomNumber);
+        lock (_countService.locker)
+        {
+            _countService.IncrementNumber(counterDto.RandomNumber);
+        }
+       // _countService.IncrementNumber(counterDto.RandomNumber);
         await _hub.Clients.All.SendAsync("SendIncrementedValue", _countService.GetNumber());
-        return Ok(_countService.GetNumber());
+        return Ok();
     }
 }

@@ -1,7 +1,10 @@
-﻿namespace Counter.Core.Interfaces;
+﻿using System.Numerics;
+
+namespace Counter.Core.Interfaces;
 
 public interface ICountService
 {
-    void IncrementNumber(Int64 a);
-    Int64 GetNumber();
+    object locker { get; set; }
+    void IncrementNumber(string numberAsString);
+    string GetNumber();
 }

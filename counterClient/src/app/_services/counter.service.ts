@@ -12,7 +12,7 @@ export class CounterService {
 
   constructor(private http : HttpClient) { }
 
-   sendRandomNumber(randomNumber : number){
+   sendRandomNumber(randomNumber : string){
     return this.http.post<Counter>(this.baseUrl + 'Counter', {randomNumber})
   }
 
